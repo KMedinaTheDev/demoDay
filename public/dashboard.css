@@ -5,3 +5,7 @@ html, body{
 h1 + i{
   font-size: 10em;
 }
+
+img{
+    max-width: 100%;
+}

@@ -7,10 +7,10 @@ module.exports = function(app, passport, db, multer, ObjectId) {
     app.get('/', function(req, res) {
     db.collection('users').find().toArray((err, result) =>{
       if (err) return console.log(err)
-      console.log(req)
+      console.log(result)
         res.render('index.ejs', {
-          users: res,
-          profiles: res
+          users: result
+
           })
         });
     });
@@ -19,8 +19,8 @@ module.exports = function(app, passport, db, multer, ObjectId) {
     app.get('/dashboard', isLoggedIn, function(req, res) {
       res.render('dashboard.ejs', {
         user : req.user,
-        profiles: res,
-        messages: res
+        profiles: res
+
       })
 
     });
@@ -34,8 +34,8 @@ module.exports = function(app, passport, db, multer, ObjectId) {
           if (err) return console.log(err)
           res.render('profile.ejs', {
             user : req.user,
-            profiles: result,
-            messages: result
+            user: result
+
           })
         })
     });

@@ -4,20 +4,71 @@
     <title>In The Streets Of: Profile View</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../profile.css">
 </head>
 <body>
+
 <div class="container">
 
+    <!-- Profile Section -->
+<section id="team" class="team content-section">
+  <div class="container">
+
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-anchor"><%= user.name %></span>'s Profile Page</h1>
         <a href="/" class="btn btn-default btn-sm">Back</a>
     </div>
 
     <div class="row">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1><%= user.name %></h1>
+        <p><%= user.story %></p>
+        <h3 class="caption gray">6 Word Memoir:<%= user.memoir %>
+</h3>
+      </div><!-- /.col-md-12 -->
 
-        <div class="col-sm-6">
-          <h1>Profile Preview</h1>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 text-center">
+            <div class="team-member">
+              <figure>
+                <img src="../<%= user.profileImg %>" alt="profile picture" class="img-responsive">
+                <figcaption>
+                  <p class="caption gray">6 Word Memoir:<%= user.memoir %></p>
+
+                  <!-- <p><%= user.story %></p> -->
+                </figcaption>
+              </figure>
+              <h4><%= user.location %></h4>
+              <h2 id="email">Contact Me:<a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= user.email %>">contact me</a></h2>
+
+              <p>Shelters:<%= user.shelterList %></p>
+             <p>My Game Plan:<%= user.gameplan %></p>
+            <p>In Need Of:<%= user.asks %></p>
+          <span>Clothing Sizing:<%= user.size %></span>
+          <p>Updates:<%= user.updates %></p>
+            </div><!-- /.team-member-->
+          </div><!-- /.col-md-4 -->
+
+
+
+
+
+
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.our-team -->
+
+    <!-- <div class="row">
+
+        <div class="col-md-6">
+
           <section class="profilePreview">
           <h1><%= user.name %></h1>
           <h3>IMG<img src="<%= user.profileImg %>" alt=""></h3>
@@ -34,13 +85,7 @@
         </div>
 
 
-        <!-- IMAGE UPLOAD -->
-        <!-- <form action="/up" enctype="multipart/form-data" method="post">
-           <input type="file" name="file-to-upload">
-           <input type="submit" value="Upload">
-         </form> -->
-
-</div>
+</div> -->
 
 <script src="main.js"></script>
 

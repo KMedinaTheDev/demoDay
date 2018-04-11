@@ -1,5 +1,6 @@
 .navAbout{
   padding: 20px;
+  margin: 10px;
 }
 .about{
   float: left;
@@ -78,6 +79,17 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+/* profile previews */
+img{
+  min-width: 100%;
+  max-width: 50%;
+}
+li{
+  list-style: none;  
+}
+
+/* ============== */
+
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: calc(var(--jumbotron-padding-y) * 2);
