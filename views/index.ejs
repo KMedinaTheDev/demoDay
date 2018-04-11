@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>In The Streets Of:</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <p>Login or Signup:</p>
+
+    <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
+    <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
+  </header>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>In The Streets Of:</h1>
+      <h2 class="quoteMarg">"Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has." – Margaret Mead</h2>
+
+      <p class="fact">"Boston's homeless population increased nearly 4 percent in 2013 over the previous year, according to an annual point-in-time census. On Dec. 16, 2013, there were 7,255 homeless men, women and children in Boston, a 3.8 percent increase over the 2012 tally of 6,992." -City Of Boston 2012 Census</p>
+
+      <section  class="hero">
+
+
+      <h1>WE ALL HAVE A STORY</h1>
+      <h3>Get acquainted with the faces you pass by every day.</h3>
+      <h2>Ever Wonder Who They Are? Where They've Been? How to Help?</h2>
+      <h3>Make Today A Better Day For Someone In Your City.</h3>
+
+    </section>
+    </div>
+  </div>
+  <aside class="">
+
+
+            <p class="btn appform-button">37
+th Annual Homeless Census <span class="fa fa-info-circle"></span></p>
+<embed width="800px" height="950px" name="plugin" id="plugin" src="https://www.boston.gov/sites/default/files/document-file-11-2017/2017_homelesscensusresultspressrelease_171128.pdf" type="application/pdf" internalinstanceid="3" title="">
+          </aside>
+  <div class="container">
+    <h1>I.T.S.O: Boston</h1>
+
+    <div id="" class="col-sm-6">
+
+      <ul class="users">
+        <% for(var i=0; i<users.length; i++) {%>
+          <li class="users">
+            <h3><img src="<%= user.profileImg %>" alt="user profile picture"></h3>
+            <h1><a href="/profile/<%=user[i]._id%>"><%= user[i].name %></a></h1>
+            <h6><%= user[i].location %></h6>
+            <h3><%= user[i].memoir %></h3>
+            <h2 id="email"><a href="https://mail.google.com/mail/?view=cm&fs=1&to="><%= user[i].email %></a></h2>
+
+          </li>
+          <% } %>
+      </ul>
+    </div>
+
+  </div>
+</body>
+
+</html>

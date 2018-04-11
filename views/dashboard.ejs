@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"> <%= user.name %></span>'s Dashboard</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><img src="<%= user.profileImg %>" alt=""></h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <h3>Messages</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].name %></span>
+              <span><%= messages[i].msg %></span>
+              <span><%= messages[i].thumbUp %></span>
+              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+            </li>
+          <% } %>
+          </ul>
+
+        <div class="col-sm-6">
+          <h1>Profile Preview</h1>
+          <section class="profilePreview">
+          <h1><%= user.name %></h1>
+          <h3><img src="<%= user.profileImg %>" alt=""></h3>
+          <span><%= user.memoir %></span>
+          <h2><%= user.location %></h2>
+          <span><%= user.shelterList %></span>
+          <p><%= user.story %></p>
+          <p><%= user.gameplan %></p>
+          <p><%= user.asks %></p>
+          <span><%= user.size %></span>
+          <p><%= user.updates %></p>
+          </section>
+        </div>
+      <h2>Update Your Profile</h2>
+
+      <p>Your profile will be available to the public, please be responsible, this is your space, and will be part of the I.T.S.O community.</p>
+      <% if (user.local.email) { %>
+
+        <form action="/profiles" method="POST">
+          <input type="text" value="<%= user.local.email %>" name="email">
+          <input type="text" placeholder="Enter Name or Nickname" name="name">
+          <span for="memoir">A 6 word <a href="https://www.google.com/search?q=dictionary+memoir&oq=dictionary+memoir&aqs=chrome..69i57j35i39j0l4.2705j0j7&sourceid=chrome&ie=UTF-8" target="_blank">memoir.</a></span>
+          <input type="text" placeholder="memoir" name="memoir">
+          <input type="text" placeholder="location" name="location">
+          <textarea name="shelterList" rows="8" cols="80" placeholder="Frequented Shelters, please use complete shelter name (where items on your list may be dropped off)"></textarea>
+          <textarea name="story" placeholder="Share Your Story Here" rows="8" cols="80"></textarea>
+          <textarea name="gameplan" placeholder="Short Term Game Plan Here, e.g. make a resume, apply to jobs, mock interviews" rows="8" cols="80"></textarea>
+          <label for="Asks">Choose Items For Asks:</label>
+          <select id="asks" name="asks" multiple="7">
+            <option name="asks" value="Deoderant">Sox</option>
+            <option name="asks" value="Deoderant">Undergarments</option>
+
+            <option name="asks" value="Deoderant">Backpack</option>
+            <option name="asks" value="Deoderant">Deoderant</option>
+            <option name="asks" value="Razor">Razor</option>
+            <option name="asks" value="Soap">Soap</option>
+            <option name="asks" value="Deoderant">Lotion</option>
+            <option name="asks" value="Deoderant">Hair Ties</option>
+            <option name="asks" value="Shampoo">Shampoo</option>
+            <option name="asks" value="Deoderant">Conditioner</option>
+            <option name="asks" value="Deoderant">Floss</option>
+            <option name="asks" value="Deoderant">Toothbrush</option>
+            <option name="asks" value="Deoderant">Comb/Brush</option>
+
+            <option name="asks" value="Deoderant">T-Shirt</option>
+
+            <option name="asks" value="Dress Shirt">Dress Shirt</option>
+            <option name="asks" value="Dress Pants">Dress Pants</option>
+            <option name="asks" value="Dress Shoes">Dress Shoes</option>
+            <option name="asks" value="Deoderant">Formal Dress</option>
+            <option name="asks" value="Deoderant">Formal Skirt</option>
+            <option name="asks" value="Deoderant">Prom Dress</option>
+            <option name="asks" value="Deoderant">Dress Tie</option>
+            <option name="asks" value="Deoderant">Gloves</option>
+            <option name="asks" value="Deoderant">Sweater</option>
+            <option name="asks" value="Deoderant">Winter Coat</option>
+            <option name="asks" value="Deoderant">Sleeping Bag</option>
+        </select>
+          <textarea name="size" placeholder="Clothing Size: S, M, L, Xl, Pant Size, Shoe Size, Men or Women's clothing(be specific)" rows="8" cols="80"></textarea>
+          <textarea name="updates" placeholder="Share updates and progress here, such as: resume completed, scheduled an interview, got a job, OR Thank Someone for an item! " rows="8" cols="80"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+    </div>
+    <% } %>
+
+
+  </div>
+
+        <!-- IMAGE UPLOAD -->
+        <form action="/up" enctype="multipart/form-data" method="post">
+           <input type="file" name="file-to-upload">
+           <input type="submit" value="Upload">
+         </form>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

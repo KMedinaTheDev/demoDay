@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>In The Streets Of: Profile View</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/" class="btn btn-default btn-sm">Back</a>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+          <h1>Profile Preview</h1>
+          <section class="profilePreview">
+          <h1><%= user.name %></h1>
+          <h3>IMG<img src="<%= user.profileImg %>" alt=""></h3>
+          <h2><%= user.location %></h2>
+          <h2 id="email"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= user.email %>">contact me</a></h2>
+
+          <span><%= user.shelterList %></span>
+          <p><%= user.story %></p>
+          <p><%= user.gameplan %></p>
+          <p><%= user.asks %></p>
+          <span><%= user.size %></span>
+          <p><%= user.updates %></p>
+          </section>
+        </div>
+
+
+        <!-- IMAGE UPLOAD -->
+        <!-- <form action="/up" enctype="multipart/form-data" method="post">
+           <input type="file" name="file-to-upload">
+           <input type="submit" value="Upload">
+         </form> -->
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
