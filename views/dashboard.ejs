@@ -14,15 +14,20 @@
 
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"> <%= user.name %></span>'s Dashboard</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="/" class="btn btn-default btn-sm">Home</a>
+        <a href="/logout" class="btn btn-default btn-lg dashboardBtn">Logout</a>
+        <a href="/" class="btn btn-default btn-lg dashboardBtn">Home</a>
+        <a href="/profile/<%=user._id%>" class="btn btn-default btn-lg dashboardBtn">Public Profile View</a>
+
+
 
     </div>
 
     <div class="row">
 
       <!-- LOCAL INFORMATION -->
-      <div class="col-sm-6 text-center">
+      <div class="leftside">
+
+      <div class="col-sm-8 text-center">
         <div class="persona ">
           <h3><img src="<%= user.profileImg %>" alt=""></h3>
 
@@ -44,7 +49,7 @@
         </div>
 
 
-            <div class="col-sm-6 upload">
+            <div class="col-sm-8 upload">
 
         <form class="form-group" action="/up" enctype="multipart/form-data" method="post">
           <label class="proLabel"for="exampleInputFile">Profile Picture Upload</label>
@@ -53,18 +58,21 @@
         </form>
       </div>
 
+
           </div>
-            <div class="col-sm-6">
+        </div>
 
-                      <h2>Update Your Profile</h2>
+            <div class="col-sm-6 ">
 
-                      <p>Your profile will be available to the public, please be responsible, this is a communal space.</p>
+                      <h2 class="updateProlab">Update Your Profile</h2>
+
+                      <h3>*Your profile will be available to the public, please be responsible, this is a communal space.</h3>
                       <% if (user.local.email) { %>
 
 </div>
-<div class="col-sm-6">
+<div class="col-sm-6 proForm">
 
-          <form action="/profiles" method="POST">
+          <form class="posting"action="/profiles" method="POST">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
 
@@ -106,7 +114,7 @@
 
 
             <label for="Asks">Choose Items:</label>
-            <select id="asks" name="asks" multiple="7">
+            <select class="itemsList" id="asks" name="asks" multiple="7">
             <option name="asks" value="Soxt">Sox</option>
             <option name="asks" value="Undergarments">Undergarments</option>
 
@@ -143,12 +151,12 @@
             <textarea class="form-control" name="size" placeholder="Clothing Size: S, M, L, Xl, Pant Size, Shoe Size, Men or Women's clothing(be specific)" rows="8" cols="80"></textarea>
 
           </div>
-          <div class="form-group">
+          <div class="form-group ">
             <label for="exampleSelect2">Updates:</label>
 
             <textarea class="form-control" name="updates" placeholder="Share updates and progress here, such as: resume completed, scheduled an interview, got a job, OR Thank Someone for an item! " rows="8" cols="80"></textarea>
 </div>
-            <button class="btn btn-primary"type="submit">Save</button>
+            <button class="btn btn-primary saveBtn"type="submit">Save</button>
           </form>
       </div>
       <% } %>

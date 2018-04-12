@@ -14,6 +14,10 @@ body {
   color: #999;
   background-color: #fff;
 }
+.col-md-8 {
+    width: 66.66666667%;
+    margin-left: 20.5%;
+}
 
 h1,
 h2,
@@ -30,6 +34,19 @@ h6 {
   line-height: 1.5;
 }
 
+
+.contactMe{
+  margin-left: 20%;
+}
+.btn-lg{
+  background: black;
+  color: white;
+  font-size: 28px;
+  border-radius: 10px;
+}
+figcaption p.caption{
+  font-size: 20px;
+}
 a:link,
 a:active,
 a:visited{
@@ -39,11 +56,28 @@ a:visited{
 a:hover{
   color:rgba(255,255,255,0.6);
 }
-
-.gray {
-  color: #a5a5a5;
+.col-md-12 p{
+  font-size: 30px;
 }
-
+.col-md-12 h3{
+  font-size: 30px;
+}
+.updatesP{
+  font-size: 30px;
+}
+.gray {
+  color: white;
+  font-size: 20px;
+}
+p{
+  font-size: 30px;
+}
+.team-member p h2{
+  font-weight: bold;
+}
+span{
+    font-size: 30px;
+}
 .team{
   margin:40px;
 }

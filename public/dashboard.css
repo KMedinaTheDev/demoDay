@@ -1,9 +1,30 @@
 html, body{
   color:black;
+  background-color:silver;
 }
-
+h1{
+  font-size: 4em;
+}
 h1 + i{
   font-size: 10em;
+}
+.leftside{
+  width: 25%;
+  /* border: 1px solid black; */
+  height: 2000px;
+  float: left;
+  margin-left: 15%;
+  background-color: white;
+}
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* background-color: black;
+    color: white; */
 }
 
 h2{
@@ -16,20 +37,30 @@ img{
 
 .persona{
   line-height: 24px;
+  /* border: 1px solid black; */
+  width: 85%;
+  float: left;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
 
+/*  FORM */
+
+.proForm{
+  margin-left: 5%;
 }
 
 .proLabel{
   font-size: 2.5em;
 }
-.upload{
-
+div.upload{
+/* margin-left: 30%; */
 }
  div.persona, .upload {
     min-height: 20px;
     padding: 19px;
     margin-bottom: 20px;
-  margin-left: 10%;
+  margin-left: 30%;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
@@ -39,23 +70,25 @@ img{
   font-size: 26px;
 
 }
+
+/* Upload Photo */
 input[type="file"] {
     display: block;
     font-size: 26px;
     padding: 10px;
     margin-left: 25%;
 }
-.fileBtn{
-  background-color: red;
-
+.upload{
+  /* border: 1px solid black; */
+  margin-top: 50px;
+  width: 85%;
 }
-
 
 .uploadBtn{
 padding: 10px;
 
 font-size: 26px;
-width: 30%;
+width: 80%;
 border-radius: 5px;
 background-color: black;
 color: white;
@@ -63,4 +96,56 @@ color: white;
 
 .uploadBtn:hover{
   opacity: 0.5;
+}
+
+
+
+/*  UPDATE SECTION */
+
+.updateProlab{
+  font-size: 3em;
+  margin-left: 30%;
+}
+
+h2 + h3{
+  margin-left: 15%
+}
+
+.posting label{
+  font-size: 2em;
+  float: left;
+}
+.posting input{
+  height:50px;
+  width: 30%;
+  font-size: 26px;
+  text-align: center;
+  border-radius: 6px;
+
+}
+
+.itemsList{
+  font-size: 28px;
+  line-height: 30px;
+  width: 500px;
+}
+.posting textarea{
+  font-size: 26px;
+  text-align: center;
+  padding-top: 0px;
+  border-radius: 6px;
+}
+.posting input, .posting textarea{
+  display:block;
+clear:left;
+  margin-top: 50px;
+  /* margin-left: -3%; */
+}
+.saveBtn{
+  font-size: 30px;
+  margin-left: 35%;
+  width: 12%;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
 }

@@ -9,6 +9,12 @@ h4, .h4 {
     font-size: 30px;
     text-align: center;
 }
+h6{
+  font-size: 20px;
+}
+.textHero{
+  width: 50%;
+}
 
 /*  === Login/SignUp buttons*/
 a span{
@@ -21,7 +27,17 @@ a span{
 div.logsig{
 margin-bottom: 5px;
 }
+.fa-user{
+  color:#5bc0de;
+}
 
+.fa-heart{
+  color: red;
+}
+
+.fa-check{
+color:  #5cb85c;
+}
 
 .btn-success {
     color: #fff;
@@ -39,6 +55,10 @@ margin-bottom: 5px;
     margin-bottom: 15px;
   }
   /*   ===    ========    ===*/
+
+.textMid{
+  line-height: 40px;
+}
 
 .resources a{
   font-weight: 500;
@@ -86,10 +106,22 @@ margin-bottom: 5px;
 }
 div .icons{
   font-size: 14rem;
-
-
-
 }
+/* mid section */
+
+h3{
+  font-size: 2.5em;
+
+  text-align: center;
+}
+
+p{
+  font-size: 20px;
+  line-height: 30px;
+  margin-left: 2%;
+}
+
+
 .album{
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -124,6 +156,9 @@ width: 100px;
 img{
   max-width: 40%;
   border-radius: 60%;
+}
+h2{
+  font-size: 3em;
 }
 
 #profiles{

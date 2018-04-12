@@ -27,6 +27,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
 
 
 
+
     // PROFILE SECTION =========================
     app.get('/profile/:id', function(req, res) {
       uId = ObjectId(req.params.id)
