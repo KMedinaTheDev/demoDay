@@ -1,12 +1,45 @@
-.navAbout{
-  padding: 20px;
-  margin: 10px;
-}
-.about{
+
+/* .about{
   float: left;
   max-width: 30rem;
   margin-right: 3rem;
+} */
+/* ====== HERO ========= */
+h4, .h4 {
+    font-size: 30px;
+    text-align: center;
 }
+
+/*  === Login/SignUp buttons*/
+a span{
+  font-size: 2em;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+div.logsig{
+margin-bottom: 5px;
+}
+
+
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    margin-top: 5px;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  /*   ===    ========    ===*/
+
 .resources a{
   font-weight: 500;
   margin-right: 3rem;
@@ -14,13 +47,7 @@
 .resources a:hover{
   color: #fff;
 }
-.navbar-collapse .container{
-  padding: 2rem 2.5rem;
-  border-bottom: 1px solid #55595c;
-}
-.navbar-collapse h4, .navbar-collapse .text-muted{
-  color: #818a91;
-}
+
 :root {
   --jumbotron-padding-y: 3rem;
 }
@@ -38,16 +65,30 @@
 }
 .jumbotron-heading{
   font-weight: 500;
-  background: white;
+  /* background: white; */
   font-size: 4em;
 }
+.jumbotron h1 {
+    line-height: 1;
+    color: black;
+}
+
 .jumbotron .container{
   max-width: 40rem;
-  background: rgba(255,255,255, 0.2);
+  background: rgba(255,255,255, 0.6  );
 }
 .jumbotron p{
   color: white;
   text-shadow: 0 0 10px rgba(0,0,0, 0.5);
+}
+.text-muted{
+  color:rgb(30, 34, 24);
+}
+div .icons{
+  font-size: 14rem;
+
+
+
 }
 .album{
   padding-top: 3rem;
@@ -57,35 +98,52 @@
 div.pdf{
   margin:10px;
 }
+/* profile previews */
 .card{
-  float: left;
-  width: 33.33%;
-  padding: .75rem;
-  margin-bottom: 2rem;
-  border: 0;
+  margin: 10px;
+  /* border: 1px solid black; */
+
 }
-.card > img{
-  margin-bottom: .75rem;
-  max-width: 100%;
+div.profilePreview{
+margin:15px;
+
+}
+div.previewBody{
+  margin-top: 10%;
+}
+div.imgCirc{
+  border-radius: 60%;
+height: 100px;
+width: 100px;
 }
 .card-text{
   font-size: 85%;
 }
+
+
+img{
+  max-width: 40%;
+  border-radius: 60%;
+}
+
+#profiles{
+width:90%;
+}
+/*  =====  ============= = == */
+li{
+  list-style: none;
+}
+
 footer {
+  width: auto;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
 footer p {
   margin-bottom: .25rem;
-}
-/* profile previews */
-img{
-  min-width: 100%;
-  max-width: 50%;
-}
-li{
-  list-style: none;  
+  font-size: 1.6em;
+  text-align: center;
 }
 
 /* ============== */

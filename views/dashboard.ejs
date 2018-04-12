@@ -1,80 +1,258 @@
 <!doctype html>
 <html>
+
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dashboard.css">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"> <%= user.name %></span>'s Dashboard</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="/" class="btn btn-default btn-sm">Home</a>
+      <h1><span class="fa fa-anchor"> <%= user.name %></span>'s Dashboard</h1>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      <a href="/" class="btn btn-default btn-sm">Home</a>
 
     </div>
 
     <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><img src="<%= user.profileImg %>" alt=""></h3>
-
-                <% if (user.local.email) { %>
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
-
-                    <a href="/unlink/local" class="btn btn-danger">Delete Account</a>
-                <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
-
-            </div>
-        </div>
-        <div class="col-sm-6">
-
-
-        <div class="col-md-6">
-          <h1>Profile Preview</h1>
-          <section class="profilePreview">
-          <h1><%= user.name %></h1>
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-6">
+        <div class="well">
           <h3><img src="<%= user.profileImg %>" alt=""></h3>
-          <span><%= user.memoir %></span>
-          <h2><%= user.location %></h2>
-          <span><%= user.shelterList %></span>
-          <p><%= user.story %></p>
-          <p><%= user.gameplan %></p>
-          <p><%= user.asks %></p>
-          <span><%= user.size %></span>
-          <p><%= user.updates %></p>
-          </section>
+
+          <% if (user.local.email) { %>
+            <p>
+              <strong>id</strong>:
+              <%= user._id %><br>
+                <strong>email</strong>:
+                <%= user.local.email %><br>
+                  <strong>password</strong>:
+                  <%= user.local.password %>
+            </p>
+
+            <a href="/unlink/local" class="btn btn-danger">Delete Account</a>
+            <% } else { %>
+              <a href="/connect/local" class="btn btn-default">Connect Local</a>
+              <% } %>
+
         </div>
-        <div class="container">
+        <!-- IMAGE UPLOAD -->
+
+        <!-- <div class="form-group">
+
+              <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+              <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div> -->
+
+            <div class="col-sm-6">
+
+        <form class="form-group" action="/up" enctype="multipart/form-data" method="post">
+          <label for="exampleInputFile">Profile Picture Upload</label>
+          <input type="file" name="file-to-upload" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+          <input type="submit" value="Upload">
+        </form>
+      </div>
+      <!-- <div class="col-sm-6"> -->
 
 
-      <h2>Update Your Profile</h2>
+            <!-- <div class="form-group">
+              <label for="exampleSelect1">Shelters:</label>
+              <select class="form-control" id="exampleSelect1">
+      <option name="shelters">Transition House (Cambridge)</option>
+      <option name="shelters">Cardinal Medieros Center
+Our Lady of Victories Church</option>
+      <option name="shelterList">Pine Street</option>
+      <option name="shelterList">Woods Mullen Shelter</option>
+      <option name="shelterList">Pine Street Inn- Women's Inn</option>
+      <option name="shelterList">Pilgrim Church Shelter Children’s Services of Roxbury</option>
+      <option name="shelterList">Rosie's Place
 
-      <p>Your profile will be available to the public, please be responsible, this is your space, and will be part of the I.T.S.O community.</p>
-      <% if (user.local.email) { %>
+      <option name="shelterList">Renewal House (Boston)</option>
+      <option name="shelterList">Crittenton Hastings Housen</option>
+      <option name="shelterList">Casa Nueva Vida</option>
+      <option name="shelterList">Temporary Home for Women & Children</option>
+    </select> -->
+            <!-- </div> -->
+          </div>
+            <div class="col-sm-6">
 
-        <form action="/profiles" method="POST">
-          <input type="text" value="<%= user.local.email %>" name="email">
-          <input type="text" placeholder="Enter Name or Nickname" name="name">
-          <span for="memoir">A 6 word <a href="https://www.google.com/search?q=dictionary+memoir&oq=dictionary+memoir&aqs=chrome..69i57j35i39j0l4.2705j0j7&sourceid=chrome&ie=UTF-8" target="_blank">memoir.</a></span>
-          <input type="text" placeholder="memoir" name="memoir">
-          <input type="text" placeholder="location" name="location">
-          <textarea name="shelterList" rows="8" cols="80" placeholder="Frequented Shelters, please use complete shelter name (where items on your list may be dropped off)"></textarea>
-          <textarea name="story" placeholder="Share Your Story Here" rows="8" cols="80"></textarea>
-          <textarea name="gameplan" placeholder="Short Term Game Plan Here, e.g. make a resume, apply to jobs, mock interviews" rows="8" cols="80"></textarea>
-          <label for="Asks">Choose Items For Asks:</label>
-          <select id="asks" name="asks" multiple="7">
+                      <h2>Update Your Profile</h2>
+
+                      <p>Your profile will be available to the public, please be responsible, this is a communal space.</p>
+                      <% if (user.local.email) { %>
+
+                        <form action="/profiles" method="POST">
+
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" value="<%= user.local.email %>" name="email" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Name</label>
+                            <input type="text" placeholder="Enter Name or nickname" name="name">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Capture</label>
+                            <span>Quick Summary</span>
+                            <input type="text" placeholder="This should be short like a pitch. " name="memoir">
+                          </div>
+
+            <div class="form-group">
+              <label for="exampleSelect2">Frequent Shelters:</label>
+              <select multiple class="form-control" id="exampleSelect2">
+                <option name="shelters">Transition House (Cambridge)</option>
+                <option name="shelters">Cardinal Medieros Center
+          Our Lady of Victories Church</option>
+                <option name="shelterList">Pine Street</option>
+                <option name="shelterList">Renewal House (Boston)</option>
+                <option name="shelterList">Crittenton Hastings Housen</option>
+                <option name="shelterList">Casa Nueva Vida</option>
+                <option name="shelterList">Temporary Home for Women & Children</option>
+                <option name="shelterList">Pine Street</option>
+                <option name="shelterList">Woods Mullen Shelter</option>
+                <option name="shelterList">Pine Street Inn- Women's Inn</option>
+                <option name="shelterList">Pilgrim Church Shelter Children’s Services of Roxbury</option>
+                <option name="shelterList">Rosie's Place</option>
+
+    </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleSelect2">List of Items</label>
+              <select multiple class="form-control" id="exampleSelect2">
+      <option name="asks" value="Deoderant">Sox</option>
+      <option name="asks" value="Deoderant">Undergarments</option>
+
+      <option name="asks" value="Deoderant">Backpack</option>
+      <option name="asks" value="Deoderant">Deoderant</option>
+      <option name="asks" value="Razor">Razor</option>
+      <option name="asks" value="Soap">Soap</option>
+      <option name="asks" value="Deoderant">Lotion</option>
+      <option name="asks" value="Deoderant">Hair Ties</option>
+      <option name="asks" value="Shampoo">Shampoo</option>
+      <option name="asks" value="Deoderant">Conditioner</option>
+      <option name="asks" value="Deoderant">Floss</option>
+      <option name="asks" value="Deoderant">Toothbrush</option>
+      <option name="asks" value="Deoderant">Comb/Brush</option>
+
+      <option name="asks" value="Deoderant">T-Shirt</option>
+
+      <option name="asks" value="Dress Shirt">Dress Shirt S</option>
+      <option name="asks" value="Dress Shirt">Dress Shirt M</option>
+      <option name="asks" value="Dress Shirt">Dress Shirt L</option>
+      <option name="asks" value="Dress Shirt">Dress Shirt XL</option>
+
+
+
+      <option name="asks" value="Dress Pants">Dress Pants 0-2/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 4/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 5/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 6/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 7/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 8/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 10/W</option>
+      <option name="asks" value="Dress Pants">Dress Pants 12/W</option>
+
+
+      <option name="asks" value="Dress Pants">Dress Pants 30/M</option>
+      <option name="asks" value="Dress Pants">Dress Pants 32/M</option>
+      <option name="asks" value="Dress Pants">Dress Pants 34/M</option>
+      <option name="asks" value="Dress Pants">Dress Pants 36/M</option>
+      <option name="asks" value="Dress Pants">Dress Pants 38/M</option>
+      <option name="asks" value="Dress Pants">Dress Pants 40/M</option>
+      <option name="asks" value="Dress Pants">Dress Pants 42/M</option>
+
+
+
+
+      <option name="asks" value="Dress Shoes">Dress Shoes</option>
+      <option name="asks" value="Deoderant">Formal Dress</option>
+      <option name="asks" value="Deoderant">Formal Skirt</option>
+      <option name="asks" value="Deoderant">Prom Dress</option>
+      <option name="asks" value="Deoderant">Dress Tie</option>
+      <option name="asks" value="Deoderant">Gloves</option>
+      <option name="asks" value="Deoderant">Sweater</option>
+      <option name="asks" value="Deoderant">Winter Coat</option>
+      <option name="asks" value="Deoderant">Sleeping Bag</option>
+    </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea">A Summary Of Your Journey</label>
+              <textarea class="form-control" id="exampleTextarea" rows="3" name="story" placeholder="Share Your Story Here"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea">Short Term Goals/ Game Plan</label>
+              <textarea class="form-control" id="exampleTextarea" rows="3" name="gameplan" placeholder="Share Your Story Here"></textarea>
+            </div>
+
+            <!-- <fieldset class="form-group">
+              <legend>Age Range</legend>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" name="age" checked>
+        18 &mdash; 21
+      </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" name="age">
+        22 &mdash; 26
+      </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" name="age">
+        27 &mdash; 33
+      </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" name="age">
+        34 &mdash; 45
+      </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" name="age">
+        46 &mdash; 51
+      </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" name="age">
+        52 &mdash; 64
+      </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" name="age">
+        65+
+      </label>
+              </div>
+
+            </fieldset> -->
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+</div>
+
+          <form action="/profiles" method="POST">
+            <input type="text" value="<%= user.local.email %>" name="email">
+            <input type="text" placeholder="Enter Name or Nickname" name="name">
+            <span for="memoir">A 6 word <a href="https://www.google.com/search?q=dictionary+memoir&oq=dictionary+memoir&aqs=chrome..69i57j35i39j0l4.2705j0j7&sourceid=chrome&ie=UTF-8" target="_blank">memoir.</a></span>
+            <input type="text" placeholder="memoir" name="memoir">
+            <input type="text" placeholder="location" name="location" name="location">
+            <textarea name="shelterList" rows="8" cols="80" placeholder="Frequented Shelters, please use complete shelter name (where items on your list may be dropped off)"></textarea>
+            <textarea name="story" placeholder="Share Your Story Here" rows="8" cols="80"></textarea>
+            <textarea name="gameplan" placeholder="Short Term Game Plan Here, e.g. make a resume, apply to jobs, mock interviews" rows="8" cols="80"></textarea>
+            <label for="Asks">Choose Items For Asks:</label>
+            <select id="asks" name="asks" multiple="7">
             <option name="asks" value="Deoderant">Sox</option>
             <option name="asks" value="Deoderant">Undergarments</option>
 
@@ -82,8 +260,8 @@
             <option name="asks" value="Deoderant">Deoderant</option>
             <option name="asks" value="Razor">Razor</option>
             <option name="asks" value="Soap">Soap</option>
-            <option name="asks" value="Deoderant">Lotion</option>
-            <option name="asks" value="Deoderant">Hair Ties</option>
+            <option name="asks" value="Lotion">Lotion</option>
+            <option name="asks" value="Hair Ties">Hair Ties</option>
             <option name="asks" value="Shampoo">Shampoo</option>
             <option name="asks" value="Deoderant">Conditioner</option>
             <option name="asks" value="Deoderant">Floss</option>
@@ -95,34 +273,29 @@
             <option name="asks" value="Dress Shirt">Dress Shirt</option>
             <option name="asks" value="Dress Pants">Dress Pants</option>
             <option name="asks" value="Dress Shoes">Dress Shoes</option>
-            <option name="asks" value="Deoderant">Formal Dress</option>
-            <option name="asks" value="Deoderant">Formal Skirt</option>
-            <option name="asks" value="Deoderant">Prom Dress</option>
-            <option name="asks" value="Deoderant">Dress Tie</option>
-            <option name="asks" value="Deoderant">Gloves</option>
-            <option name="asks" value="Deoderant">Sweater</option>
-            <option name="asks" value="Deoderant">Winter Coat</option>
-            <option name="asks" value="Deoderant">Sleeping Bag</option>
+            <option name="asks" value="Formal Dress">Formal Dress</option>
+            <option name="asks" value="Formal Skirt">Formal Skirt</option>
+            <option name="asks" value="Prom Dress">Prom Dress</option>
+            <option name="asks" value="Dress Tiet">Dress Tie</option>
+            <option name="asks" value="Gloves">Gloves</option>
+            <option name="asks" value="Sweater">Sweater</option>
+            <option name="asks" value="Winter Coat">Winter Coat</option>
+            <option name="asks" value="Sleeping Bag">Sleeping Bag</option>
         </select>
-          <textarea name="size" placeholder="Clothing Size: S, M, L, Xl, Pant Size, Shoe Size, Men or Women's clothing(be specific)" rows="8" cols="80"></textarea>
-          <textarea name="updates" placeholder="Share updates and progress here, such as: resume completed, scheduled an interview, got a job, OR Thank Someone for an item! " rows="8" cols="80"></textarea>
-          <button type="submit">Submit</button>
-        </form>
+            <textarea name="size" placeholder="Clothing Size: S, M, L, Xl, Pant Size, Shoe Size, Men or Women's clothing(be specific)" rows="8" cols="80"></textarea>
+            <textarea name="updates" placeholder="Share updates and progress here, such as: resume completed, scheduled an interview, got a job, OR Thank Someone for an item! " rows="8" cols="80"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+      </div>
+      <% } %>
     </div>
-    <% } %>
-  </div>
+
+
 
   </div>
 
-        <!-- IMAGE UPLOAD -->
-        <form action="/up" enctype="multipart/form-data" method="post">
-           <input type="file" name="file-to-upload">
-           <input type="submit" value="Upload">
-         </form>
-
-</div>
-
-<script src="main.js"></script>
+  <script src="main.js"></script>
 
 </body>
+
 </html>

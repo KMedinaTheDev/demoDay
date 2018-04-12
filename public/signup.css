@@ -1,0 +1,345 @@
+@keyframes blink {
+  0% {
+    height: 0px;
+  }
+  10% {
+    height: 40px;
+  }
+  20% {
+    height: 0px;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: arial;
+  color: #999;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 1px 8px 1px lightgray;
+  min-width: 300px;
+  min-height: 300px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.card_group {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  border-color: lightgray;
+  transition: border-color 0.5s;
+  align-items: flex-end;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.card_gender {
+  padding: 5px 20px;
+  flex: 1;
+  text-align: center;
+}
+
+.card_gender:not(:first-child) {
+  border-left: 1px solid #bdbdbd;
+}
+
+.card_gender .card_gender-label {
+  transition: color .5s;
+  cursor: pointer
+}
+
+input[type="radio"]:checked+.card_gender-label {
+  color: green;
+}
+
+.card_label {
+  flex-basis: 25%;
+  max-width: 25%;
+  margin-right: 10px;
+}
+
+.card_input {
+  width: 100%;
+  box-sizing: border-box;
+  background: none;
+  border: 0;
+  flex: 1;
+  font-size: 14px;
+  color: #999;
+}
+
+.card_input:valid ~ .card_check {
+  transform: scale(1);
+  background: green;
+}
+
+.card_input:invalid ~ .card_check {
+  background: red;
+  transform: scale(1);
+}
+
+.card_check {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: transform .2s;
+  position: relative;
+  margin: 0 0 0 10px;
+}
+
+.card_input:valid ~ .card_check:after {
+  transform: rotate(45deg)scale(1);
+}
+
+.card_input:invalid ~ .card_check:after {
+  transform: rotate(0)scale(1);
+  border-width: 0 2px 0 0;
+  width: 0px;
+}
+
+.card_check:before {
+  content: '';
+  height: 2px;
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 100%;
+  width: 2px;
+  background: white;
+  transform: scale(0);
+  transition: all .2s;
+}
+
+.card_input:invalid ~ .card_check:before {
+  transform: scale(1)
+}
+
+.card_check:after {
+  position: absolute;
+  content: '';
+  width: 4px;
+  height: 8px;
+  border-color: white;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 4px;
+  transform: rotate(45deg)scale(0);
+  transition: all .2s;
+}
+
+.card_input:focus {
+  outline: none;
+  border-color: lightblue;
+}
+
+.container {
+  background: #fff4ea;
+  border-radius: 100%;
+  overflow: hidden;
+  height: 235px;
+  width: 235px;
+  margin: 8px auto 25px auto;
+  position: relative;
+}
+
+.address.container:before {
+  transform: translateY(0%);
+}
+
+.container:before {
+  content: '';
+  background-image: url(http://www.westernroofing.net/Editorial_files/buildings%20header.png);
+  bakground-position: center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: all 1s;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
+  transform: translateY(140px);
+  transition: 1s transform;
+}
+
+.visible .avatar{
+  transform: translateY(20px);
+}
+.avatar_body {
+  background: blue;
+  height: 100px;
+  width: 120px;
+  border-radius: 60px 60px 10px 10px;
+}
+
+.female, .male {
+  margin-top: -20px;
+}
+
+.avatar_head {
+  background: tan;
+  height: 100px;
+  width: 90px;
+  position: relative;
+  bottom: -30px;
+  border-radius: 10px 10px 50px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.female .avatar_hair {
+position: relative;
+  width: 100px;
+  height: 35px;
+background: black;
+  clip-path: polygon(5% 10%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    bottom: -52px;
+    z-index: 2;
+    border-radius: 10px 0 10px 0;
+    transform: rotate(-12deg);
+}
+
+.female.avatar:before {
+  background: black;
+  content: '';
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 60px;
+  border-radius: 10px;
+}
+
+.female .avatar_hair {
+      transform: rotate(-13deg);
+    border-radius: 16px;
+}
+.male .avatar_hair {
+  position: relative;
+  width: 100px;
+  height: 35px;
+  background: black;
+  clip-path: polygon(5% 5%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    bottom: -52px;
+    z-index: 2;
+    border-radius: 10px 0 10px 0;
+    transform: rotate(-16deg);
+}
+
+.male .avatar_curras {
+  background: black;
+  width: 10px;
+  height: 50px;
+  content: '';
+}
+
+.avatar_face {
+   flex: 1;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.avatar_mouth:after {
+    right: -18px;
+}
+.avatar_mouth:before {
+    left: -18px;
+}
+
+.avatar_mouth:after,
+.avatar_mouth:before {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  background: #f7c7c3;
+  content: '';
+  z-index: 1;
+  border-radius: 100%;
+  top: -10px;
+  box-shadow: 0 0 5px 5px #f7c7c3;
+}
+
+.avatar_eyes {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  position: relative;
+}
+
+.avatar_eyes:after {
+  background: #f7d596;
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  content: '';
+  top: 0px;
+  z-index: 1;
+  animation: blink 5s infinite;
+}
+
+.avatar_eye {
+  background: white;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  margin: 10px;
+  position: relative;
+  box-shadow: inset 0px 2px 1px 1px black;
+}
+
+.avatar_pupil {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: black;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 3px;
+}
+
+.avatar_pupil:after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background: white;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 3px;
+}
+
+.avatar_mouth {
+  background: #ff7d7d;
+  width: 40px;
+  height: 5px;
+  transition: height .5s;
+  border-radius: 0 0 100% 100%;
+  position: relative;
+  top: 5px;
+  box-shadow: inset 3px 0 0 2px #ff1a1a59;
+}
