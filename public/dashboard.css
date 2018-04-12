@@ -6,6 +6,61 @@ h1 + i{
   font-size: 10em;
 }
 
+h2{
+  line-height: 40px;
+}
+
 img{
     max-width: 100%;
+}
+
+.persona{
+  line-height: 24px;
+
+}
+
+.proLabel{
+  font-size: 2.5em;
+}
+.upload{
+
+}
+ div.persona, .upload {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+  margin-left: 10%;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.deleteBtn{
+  font-size: 26px;
+
+}
+input[type="file"] {
+    display: block;
+    font-size: 26px;
+    padding: 10px;
+    margin-left: 25%;
+}
+.fileBtn{
+  background-color: red;
+
+}
+
+
+.uploadBtn{
+padding: 10px;
+
+font-size: 26px;
+width: 30%;
+border-radius: 5px;
+background-color: black;
+color: white;
+}
+
+.uploadBtn:hover{
+  opacity: 0.5;
 }
