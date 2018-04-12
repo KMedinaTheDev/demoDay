@@ -1,4 +1,4 @@
-![.:.In The Streets of..:.](img/itso.png)
+![.:.In The Streets of..:.](public/img/itso.png)
 
 ## Installation
 
