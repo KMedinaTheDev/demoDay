@@ -1,4 +1,8 @@
+![.:.In The Streets of..:.](img/itso.png)
+
 ## Installation
+
+
 
 1. Clone repo
 2. run `npm install`
