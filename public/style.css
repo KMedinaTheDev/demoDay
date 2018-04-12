@@ -111,8 +111,11 @@ div .icons{
 
 h3{
   font-size: 2.5em;
-
   text-align: center;
+}
+h3 + h6{
+  font-size: 30px;
+  font-weight: bold;
 }
 
 p{
@@ -121,6 +124,29 @@ p{
   margin-left: 2%;
 }
 
+.fa-info-circle{
+  font-size: 2em;
+  padding: 10px;
+  margin-right: 5%;
+}
+
+.midInfo{
+  margin: 5%;
+}
+
+h3.heroQ{
+  margin-top: 2px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  border-radius: 10px;
+  width: 30%;
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+  margin: 2%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
 .album{
   padding-top: 3rem;
@@ -167,6 +193,11 @@ width:90%;
 /*  =====  ============= = == */
 li{
   list-style: none;
+
+}
+
+li a{
+  font-size: 2em;
 }
 
 footer {

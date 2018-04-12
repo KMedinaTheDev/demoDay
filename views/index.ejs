@@ -23,10 +23,10 @@
 
   <section class="jumbotron hero">
     <div class="container ">
-      <div class="text-center">
+
+      <div class="text-center jumboH">
         <h1 class="jumbotron-heading">In The Streets Of:</h1>
       </div>
-      <h3 class="lead text-muted">"Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has." – Margaret Mead</h3>
 
       <h4 class="text-white"> I.T.S.O</h4>
       <h4 class="text-muted">Ever Wonder Who They Are? Where They've Been? How to Help?</h4>
@@ -46,6 +46,10 @@
 
 
       </p>
+    </div>
+    <div class="heroQ">
+      <h3 class="lead text-muted heroQ">"--Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has." – Margaret Mead</h3>
+
     </div>
   </section>
 
@@ -74,7 +78,7 @@
         <h3 "text-white">To Connect, Learn, Donate, Or Get Involved</h3>
         <h6>In The Streets Of is all about self-advocacy, community, and awareness.These public profiles are an opportunity to learn from those who are currently temporarily homeless, so that as a community we can learn how to improve How We Help. Working together we can improve the allocation of resources and by doing so, we can reach our full potential as an efficient society. </h6>
 
-        <p class="text-muted">View Profiles(or click <a href="#">here</a>).</p>
+        <p class="text-muted">View Profiles(or click <a href="#prifle">here</a>).</p>
         <p class="text-muted">If you have an item you'd like to donate that matches with a participant's posted list of basic items that could help this moment, you frequented shelters.</p>
         <p class="text-muted">Someone may be looking for help with their resume, or mentorship, feel free to connect with them by sending an email.</p>
         <h6 class="text-muted">*there is no exchange of currency, all items are considered donations</h6>
@@ -98,16 +102,15 @@
     </div>
   </div>
   <div class="container">
-    <span class="fa fa-info-circle"></span>
     <!-- <h2 class="text-white">"Boston's homeless population increased nearly 4 percent in 2013 over the previous year, according to an annual point-in-time census. On Dec. 16, 2013, there were 7,255 homeless men, women and children in Boston, a 3.8 percent increase over the 2012 tally of 6,992." -City Of Boston 2012 Census</h2> -->
-    <div class="row">
+    <div class="row midInfo">
 
 
       <div class="col-md-6">
-        I.T.S.O connects us on two . We track how many people are using services, like emergency shelters, transitional housing, and treatment programs. At the same time, we collect information about household demographics, income level, family size, and the
-        community of origin for each person. Together, this data helps us understand who we are serving, and what gaps there are in our services. It helps us understand our priorities, so we can design even better policies. Census results also inform
-        federal funding, and help measure progress in our efforts to prevent and end homelessness.
-        <embed width="auto" height="600px" name="plugin" id="plugin" src="https://www.boston.gov/sites/default/files/document-file-11-2017/2017_homelesscensusresultspressrelease_171128.pdf" type="application/pdf" internalinstanceid="3" title="">
+        <span class="fa fa-info-circle"></span>
+
+      <h4>I.T.S.O connects can help us track real time data of what resources are being use, who's using them, and help us identify what is missing. Our efforts as a community can help to prevent and end homelessness.</h4>
+        <!-- <embed width="auto" height="600px" name="plugin" id="plugin" src="https://www.boston.gov/sites/default/files/document-file-11-2017/2017_homelesscensusresultspressrelease_171128.pdf" type="application/pdf" internalinstanceid="3" title=""> -->
       </div>
 
 
@@ -135,7 +138,7 @@
     </div>
   </div>
   <div id="profiles" class="container text-center">
-    <h2>I.T.S.O: Boston Profiles</h2>
+    <h2 id="profiles">I.T.S.O: Boston Profiles</h2>
 
 
     <div class="row">
@@ -153,7 +156,7 @@
               <div class="card-body previewBody">
                 <h6><%= users[i].location %></h6>
                 <h3><%= users[i].memoir %></h3>
-                <h3 id="email"><a href="https://mail.google.com/mail/?view=cm&fs=1&to="><%= users[i].email %></a></h3>
+                <!-- <h3 id="email"><a href="https://mail.google.com/mail/?view=cm&fs=1&to="><%= users[i].email %></a></h3> -->
 
               </div>
               <h3><a href="/profile/<%=users[i]._id%>"><%= users[i].name %></a></h3>
