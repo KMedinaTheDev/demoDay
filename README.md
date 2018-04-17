@@ -1,4 +1,4 @@
-![.:.In The Streets of..:.](img/appSS4-17.png)
+![.:.In The Streets of..:.](public/img/appSS4-17.png)
 
 ## Installation
 
