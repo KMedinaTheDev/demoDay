@@ -1,4 +1,4 @@
-![.:.In The Streets of..:.](public/img/itso.png)
+![.:.In The Streets of..:.](appSS4-16.png)
 
 ## Installation
 
@@ -9,7 +9,7 @@
 
 ## Usage
 
-1. run `node server.js`
+1. run `node server.js` or `npm run itso`(w/ nodemon)
 2. Navigate to `localhost:8080`
 
 ## Credit
